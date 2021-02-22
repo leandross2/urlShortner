@@ -31,7 +31,7 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   });
 });
 
-const port = process.env.PORT || process.env.APP_PORT || 3001
+const port = process.env.PORT || 3001
 
 app.listen(port, () => {
   console.log(`rodando na ${port}`)
