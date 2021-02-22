@@ -20,14 +20,15 @@ class UrlRepository implements IUrlRepository {
     return url
   }
 
-  public async findUrl(url: string): Promise<Url[]> {
-    const urlFinded = this.ormRepository.find({ where: url })
+  public async findUrlByShortUrl(endUrl: string): Promise<Url | undefined> {
+
+    const urlFinded = this.ormRepository.findOne({ where: { url_short: endUrl } })
 
     return urlFinded
   }
+  public async findUrlByUrl(url: string): Promise<Url | undefined> {
 
-  public async findShortUrl(endUrl: string): Promise<Url[]> {
-    const urlFinded = this.ormRepository.find({ where: { short_url: endUrl } })
+    const urlFinded = this.ormRepository.findOne({ where: { url } })
 
     return urlFinded
   }
