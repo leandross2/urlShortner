@@ -10,9 +10,7 @@ class RedirectsController {
     const findRedirect = container.resolve(FindRedirectService)
 
     const redirect = await findRedirect.execute(url_short)
-    console.log(redirect)
     return response.redirect(301, redirect)
-    response.send()
   }
 }
 

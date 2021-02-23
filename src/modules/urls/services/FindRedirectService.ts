@@ -25,7 +25,6 @@ class FindRedirectService {
     }
 
     const fullUrl = `http://${urlExist.url}`
-    console.log()
     return fullUrl
   }
 }

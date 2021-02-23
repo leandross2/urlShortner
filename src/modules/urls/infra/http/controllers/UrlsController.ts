@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
+import { classToClass } from 'class-transformer'
 
 import CreateUrlService from '@modules/urls/services/CreateUrlService'
 
@@ -11,7 +12,7 @@ class UrlsController {
 
     const url = await createUrl.execute(newUrl)
 
-    return response.json(url)
+    return response.json({ url: classToClass(url) })
   }
 }
 

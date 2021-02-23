@@ -20,7 +20,7 @@ class RedirectsController {
     const findRedirect = _tsyringe.container.resolve(_FindRedirectService.default);
 
     const redirect = await findRedirect.execute(url_short);
-    console.log(redirect);
+
     return response.redirect(301, redirect);
     response.send();
   }

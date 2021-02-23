@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
+import { Exclude, Expose } from 'class-transformer';
 
 @Entity('urls')
 class Url {
@@ -17,6 +18,12 @@ class Url {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'shortUrl' })
+
+  getshort_url(): string {
+    return `${process.env.API_URL}${this.url_short}`
+  }
 }
 
 export default Url
